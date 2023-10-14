@@ -18,7 +18,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          - macos-11
     steps:
       - uses: actions/cache@v3
         with:
@@ -36,8 +36,8 @@ jobs:
           path: ~/Library/Caches/ccache
           key: 0-cache-macos-latest-${{ github.run_id }}
           restore-keys: |
-            0-cache-macos-latest
-        if: matrix.os == 'macos-latest'
+            0-cache-macos-11
+        if: matrix.os == 'macos-11'
       - name: Install wasmtime for tests
         run: curl -f -L --retry 5 https://wasmtime.dev/install.sh | bash -s -- --version v8.0.1
       - uses: actions/checkout@v3
